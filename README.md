@@ -1,4 +1,4 @@
-#Template TCC FGA-UnB
+## Template TCC FGA-UnB
 
 Template para Trabalhos de Conclusão de Cursos (TCC) na Faculdade do
 Gama (FGA) em Latex.
@@ -20,22 +20,12 @@ conhecida como Quantal Quetzal), Linux Mint 14, entre outras.
 Para instalar o abnTeX2 (e as respectivas dependências, como o próprio TeXLive) 
 em uma distribuição Debian ou derivada, utilize a instalação via apt-get (ou 
 outro gerenciador de pacotes que preferir):
-
-Adicione a seguinte linha ao arquivo /etc/apt/sources.list:
-	
-	deb http://distrib.abntex2.googlecode.com/hg/debian/ testing main
-
-Opcionalmente, adicione a linha abaixo caso deseje baixar os fontes:
-
-	deb-src http://distrib.abntex2.googlecode.com/hg/debian/ testing main
-
-Adicione a chave pública ao chaveiro do apt:
-
-	$ wget -O - http://distrib.abntex2.googlecode.com/hg/debian/89C55467.asc|sudo apt-key add - 
+ 
 
 Instale o abntex2:
 
-	$ sudo apt-get update && sudo apt-get install abntex2
+	$ sudo apt-get update && sudo apt-get install texlive
+	$ sudo apt-get install texlive-publishers texlive-lang-portuguese texlive-latex-extra texlive-fonts-recommended
 
 Para atualizar uma instalação já existente, feita a partir do repositório:
 	
