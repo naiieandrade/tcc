@@ -143,7 +143,7 @@ Supondo que um processo de Bernoulli tenha sido executado por $n$ vezes, e que t
 
 \section{Aprendizado de Máquina}
 
-Aprendizado de Máquina é uma área de IA cujo objetivo é o desenvolvimento de técnicas computacionais sobre o aprendizado bem como a construção de sistemas capazes de adquirir conhecimento de forma automática. Um sistema de aprendizado é um programa de computador que toma decisões baseado em experiências acumuladas através da solução bem sucedidade de problema anteriories (\cite{Monard2003}). 
+Aprendizado de Máquina (AM) é uma área de Inteligência Artificial (IA) cujo objetivo é o desenvolvimento de técnicas computacionais sobre o aprendizado bem como a construção de sistemas capazes de adquirir conhecimento de forma automática. Um sistema de aprendizado é um programa de computador que toma decisões baseado em experiências acumuladas através da solução bem sucedidade de problema anteriories \cite{monard2003}. 
 
 \cite{mitchell1997} define que um programa computacional aprende a partir da experiencia E, em relação a uma classe de tarefas T, com medida de desempenho P, se seu desempenho nas tarefas T, medida por P, melhora com a experiência E.
 
@@ -154,43 +154,88 @@ conjunto particular de exemplos. Ela é caracterizada como o raciocínio que se 
 
 O aprendizado indutivo é efetuado a partir de raciocínio sobre exemplos fornecidos por um processo externo ao sistema de aprendizado. O aprendizado indutivo pode ser dividido em supervisionado e não-supervisionado. 
 
+Os algoritmos de AM são utilizados para detecção de fraudes, análise de crédito, sistemas de recomendação, mecanismos de buscas, entre outros.
 
-No aprendizado supervisionado é fornecido ao algoritmo de aprendizado, ou indutor, um conjunto de exemplos de treinamento para os quais o rótulo (\textit{label}) da classe associada é conhecido.
-
-Em geral, cada exemplo é descrito por um vetor de valores de características, ou atributos, e o rótulo da classe associada. O objetivo do algoritmo de indução é construir um classificador que possa determinar corretamente a classe de novos exemplos ainda não rotulados, ou seja, exemplos que não tenham o rótulo da classe. Para rótulos de classe discretos, esse problema é conhecido como classificação e para valores contínuos como regressão.
-
-Já no aprendizado não-supervisionado, o indutor analisa os exemplos fornecidos e tenta determinar se alguns deles podem ser agrupados de alguma maneira, formando agrupamentos ou clusters Cheeseman  Stutz 1990. Após a determinação dos agrupamentos, normalmente, é necessária uma análise para determinar o que cada agrupamento significa no contexto do problema que está sendo analisado.
-
-
-\subsection{Aprendizado Não Supervisionada}
-LIVRO: 261
-
-Segundo XXXX, o paradigma da aprendizagem não supervisionada, muitas vezes chamado de agrupamento, envolve um processo que revela automaticamente (descobre) a estrutura dos dados e não envolve nenhuma supervisão. Dado um dataset N-dimensional $X={x_1,x_2,\dots,x_N}$, onde cada $x_k$ é caracterizado por um conjunto de atributos, para identificar e descrever grupos (\textit{clusters}) presente em $X$..
-
-
-Como o nome \textit{clustering} ou agrupamento implica, espera-se que um algoritmo adequado, não supervisionado, seja capaz de descobrir a estrutura por conta própria explorando semelhanças ou diferenças (como distâncias) entre pontos de dados individuais em um conjunto de dados em consideração. (pg 257) Entretanto, agrupar dois pontos se eles estivem "próximos" ... O número de estratégias diferentes para a formação de \textit{cluster} é enorme, e muitas abordagens tentam determinar qual a "similaridade" entre os elementos nos dados significa. Diferente algoritmos de \textit{clustering} abordam várias facetas e propriedades de clusters..
-
-
-Técnicas de \textit{clustering} (agrupamento) podem ser divididos em três principais categorias:
-
-- Partição 
-- Clustering Hierárquico 
-- Model-based (pg 258-262)
 
 
 \subsection{Aprendizado Supervisionada}
 
-PG: 62
+
+No aprendizado supervisionado é fornecido ao algoritmo de aprendizado, ou indutor, um conjunto de exemplos de treinamento para os quais o rótulo (\textit{label}) da classe associada é conhecido.
+
+Em geral, cada exemplo é descrito por um vetor de valores de características, ou atributos, e o rótulo da classe associada. O objetivo do algoritmo de indução é construir um classificador que possa determinar corretamente a classe de novos exemplos ainda não rotulados, ou seja, exemplos que não tenham o rótulo da classe. Para rótulos de classe discretos, esse problema é conhecido como classificação e para valores contínuos como regressão. \cite{monard2003}
 
 
-A aprendizagem supervisionada está no outro extremo do espectro de aprendizado não supervisionado na diversidade existente de esquemas de aprendizado. Na aprendizagem não supervisionada, nos são fornecidos dados e solicitados a descobrir sua estrutura.
 
-Na aprendizagem supervisionada, a situação é muito diferente. Recebemos uma coleção de dados (padrões) e sua caracterização, que podem ser expressos na forma de alguns rótulos discretos (caso em que temos um problema de classificação) ou alguns valores de variáveis contínuas auxiliares. Nesse caso, estamos diante de um problema de regressão ou de um problema de aproximação.
+\subsection{Aprendizado Não Supervisionada}
 
-Em problemas de classificação, cada ponto de dados $x_k$ vem com um certo rótulo de classe .. "label"
+Já no aprendizado não-supervisionado, o indutor analisa os exemplos fornecidos e tenta determinar se alguns deles podem ser agrupados de alguma maneira, formando agrupamentos ou \textit{clusters}. Após a determinação dos agrupamentos, normalmente, é necessária uma análise para determinar o que cada agrupamento significa no contexto do problema que está sendo analisado \cite{monard2003}.
+
+
+
+O número de estratégias diferentes para a formação de \textit{cluster} é enorme, e muitas abordagens tentam determinar qual a "similaridade" entre os elementos nos dados significa. Algoritmos que sejam capazes de descobrir a estrutura por conta própria explorando semelhanças ou diferenças (como distâncias) entre pontos de dados individuais em um conjunto de dados, são um exemplo \cite{cios2007}. Técnicas de \textit{clustering} podem ser divididos em três principais categorias: Partição, \textit{Clustering} Hierárquico e Model-based \textit{Clustering}.
+
 
 
 \section{Naive Bayes}
+
+%O Classificador Naive Bayes é provavelmente o classificador mais utilizado em AM APUD BEM AQUI. O classificador é denominado ingênuo (\textit{naive}) por assumir que os atributos são condicionalmente independentes, ou seja, a informação de um evento não é informativa sobre nenhum outro \cite{oguri2007}. Apesar desta premissa "ingênua" e simplista, o classificador reporta o melhor desempenho em várias tarefas de classificação.
+
+Segundo \cite{zhang2004} Naive Bayes é um dos mais eficientes e eficazes algoritmos de aprendizado indutivo para aprendizado de máquina e mineração de dados. É a forma mais simples de rede Bayesiana, na qual todos os atributos são independentes, dado o valor da variável de classe. Isso é chamado de independência condicional, que raramente é verdadeira na maioria das aplicações do mundo real, refletindo o bom desempenho.
+
+%Uma abordagem direta para superar a limitação de ingênuos Bayes é estender sua estrutura para representar explicitamente as dependências entre os atributos.
+
+
+%O bom desempenho de Naive Bayes é surpreendente, pois geralmente não reflete as aplicações do mundo real: dado o valor da classe, todos os atributos são independentes.
+
+
+%O bom desempenho de Naive Bayes é surpreendente, pois faz uma suposição que quase sempre é violada em aplicações do mundo real: dado o valor da classe, todos os atributos são independentes.
+
+Um classificador é uma função que atribui um rótulo de classe a um exemplo. Do ponto de vista da probabilidade, de acordo com a regra de Bayes, a probabilidade de um exemplo $E = (x_1, x_2, \dots, x_n)$, sendo $c$ uma classe é
+
+
+\begin{equation}
+p(c,E) = \frac{p(E|c)p(c)}{p(E)}
+\end{equation} 
+
+Suponha que todos os atributos sejam independentes, dado o valor da variável de classe; isso é,
+
+\begin{equation}
+p(E|c) = p(x_1, x_2, \dots, x_n|c) = \prod_{i=1}^{n} p(x_i|c)
+\end{equation}
+
+\apud{domingos1997}{zhang2004} explica que Naive Bayes deve seu bom desempenho à função de perda zero-um. Essa função define o erro como o número de classificações incorretas \apud{friedman1997}{zhang2004}. Ao contrário de outras funções de perda, como o erro quadrado, a função de perda zero-um não penaliza a estimativa de probabilidade imprecisa, desde que a probabilidade máxima seja atribuída à classe correta. Isto significa que Naive Bayes pode mudar as probabilidades posteriores de cada classe, mas a classe com a probabilidade posterior máxima é muitas vezes inalterada. Assim, a classificação ainda está correta, embora a estimativa de probabilidade seja ruim.
+
+
+\cite{zhang2004} propôs uma nova explicação sobre o desempenho de classificação de Naive Bayes: a distribuição de dependência desempenha um papel crucial a classificação. Mesmo com fortes dependências, Naive Bayes ainda funciona bem; ou seja, quando essas dependências se anulam, não há influência na classificação. %Nesse caso, Naive Bayes ainda é o classificador ideal. 
+%Além disso, investigamos a otimalidade de Naive Bayes sob a distribuição gaussiana e apresentamos a condição explícita e suficiente sob a qual Naive Bayes é ótimo, mesmo que a suposição de independência condicional seja violada.
+
+
+
+%Neste artigo, propomos uma nova explicação sobre o desempenho de classificação de Bayes ingênuos. Mostramos que, essencialmente, a distribuição de dependência; isto é, como a dependência local de um nó distribui em cada classe, de maneira uniforme ou desigual, e como as dependências locais de todos os nós trabalham juntas, consistentemente (suportam uma certa classificação) ou inconsistentemente (anulam-se mutuamente), desempenha um papel crucial a classificação. Nós explicamos porque, mesmo com fortes dependências, Bayes ingênuo ainda funciona bem; ou seja, quando essas dependências se anulam, não há influência na classificação. Nesse caso, Bayes ingênuo ainda é o classificador ideal. Além disso, investigamos a otimalidade de Bayes ingênuos sob a distribuição gaussiana e apresentamos a condição explícita e suficiente sob a qual Bayes ingênuo é ótimo, mesmo que a suposição de independência condicional seja violada
+
+
+
+%Os algoritmos classificadores de documentos utilizam processos indutivos. Nesta linha, um classificador para uma categoria $c_{i}$ é construído observando as características de um conjunto de documentos, previamente rotulados sob $c_{i}$ por um especialista no domínio. Esta é uma abordagem de aprendizado supervisionado, onde um novo documento é classificado de acordo com as características aprendidas por um classificador construído e treinado a partir de dados rotulados.\cite{oliveira2000} 
+
+%Um classificador é uma função que atribui um rótulo de classe a um exemplo. Do ponto de vista da probabilidade, segundo a Regra de Bayes, a probabilidade de um exemplo $E = (x_1, x_2, \dots, x_n)$ com classe $c$ é
+
+
+%O classificador AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+%Suponha que se conheça a probabilidade prévia (\textit{a priori}) $P(w_j)$ e a densidade condicional $p(x|w_j)$
+
+%A fórmula de Bayes:
+
+
+%begin{equation}
+%P(w_j,x) = \frac{p(x|w_j)P(w_j)}{p(x)}
+%end{equation} 
+
+%A fórmula de Bayes mostra que observando o valor de $x$ pode-se converter a probabilidade \textit{a priori} $P(w_j)$ para a probabilidade \textit{a posteriori} $P(w_j|x)$ - a probabilidade do estado natural de $w_j$, dado que o valor $x$ da característica tem sido medido. 
+
+%O Classificador Naive Bayes é provavelmente o classificador mais utilizado em AM APUD BEM AQUI. O classificador é denominado ingênuo (\textit{naive}) por assumir que os atributos são condicionalmente independentes, ou seja, a informação de um evento não é informativa sobre nenhum outro \cite{oguri2007}. Apesar desta premissa "ingênua" e simplista, o classificador reporta o melhor desempenho em várias tarefas de classificação.
+
 
 %https://scikit-learn.org/stable/modules/naive_bayes.html
 
@@ -199,9 +244,79 @@ Em problemas de classificação, cada ponto de dados $x_k$ vem com um certo rót
 
 \section{Análise de Componentes Principais}
 
-OU tb PCA
+Segundo \cite{sandanielo2015} a análise de componentes principais (ACP) é uma técnica multivariada de modelagem da estrutura de covariância. 
+% A técnica foi inicialmente descrita por Pearson (1901) e uma descrição de métodos computacionais práticos veio muito mais tarde com Hotelling (1933, 1936) que usou com o propósito determinado de analisar as estruturas de correlação. 
+Transforma linearmente um conjunto
+original de variáveis, inicialmente correlacionadas  entre si, num conjunto substancialmente menor de variáveis não correlacionadas que contém a maior parte da informação do conjunto original. 
+
+É a técnica mais conhecida e
+está associada à ideia de redução de massa de dados, com menor perda possível da
+informação,
+também é associada à ideia de redução de
+massa de dados, com menor perda possível
+da informação. Procura-se redistribuir a
+variação observada nos eixos originais de
+forma a se obter um conjunto de eixos
+ortogonais não correlacionados \apud{manly1986}{sandanielo2015} \apud{hongyu2015}{sandanielo2015}.
+
+
+A ACP consiste em transformar
+um conjunto de variáveis originais em outro
+conjunto de variáveis de mesma dimensão
+denominadas de componentes principais.
+Os componentes principais apresentam
+propriedades importantes: cada
+componente principal é uma combinação linear de todas as variáveis originais, são
+independentes entre si e estimados com o
+propósito de reter, em ordem de estimação,
+o máximo de informação, em termos da
+variação total contida nos dados
+\apud{wichern1998}{sandanielo2015}   \apud{hongyu2015}{sandanielo2015}.
+
+O objetivo principal da análise de
+componentes principais é o de explicar a
+estrutura da variância e covariância de um
+vetor aleatório, composto de \textit{p}-variáveis
+aleatórias, por meio de combinações
+lineares das variáveis originais. Essas
+combinações lineares são chamadas de
+componentes principais e são não
+correlacionadas entre si \cite{sandanielo2015}.
+
+As técnicas de análise multivariada podem ser
+utilizadas para resolver problemas como redução da dimensionalidade das variáveis, agrupar os
+indivíduos (observações) pelas
+similaridades, em diversas áreas do
+conhecimento, por exemplo, agronomia,
+fitotecnia, zootecnia, ecologia, biologia,
+psicologia, medicina, engenharia florestal,
+etc.
 
 \section{Latent Dirichlet Allocation}
+
+
+A alocação de Dirichlet latente (LDA) é um modelo probabilístico generativo de um corpus. A idéia básica é que os documentos são representados como misturas aleatórias sobre tópicos latentes, onde cada tópico é caracterizado por uma distribuição sobre palavras \cite{blei2003}.
+
+\cite{blei2003} usa a linguagem das coleções de texto em todo o documento, referindo-se a entidades como “palavras”, “documentos” e “corpora”. Isso é útil porque ajuda a guiar a intuição, quando são introduzidas variáveis latentes que visam capturar noções abstratas, como tópicos.
+É importante notar, no entanto, que o modelo de LDA não está necessariamente vinculado ao texto, e tem aplicações para outros problemas envolvendo coleções de dados, incluindo dados de domínios como filtragem colaborativa, recuperação de imagens baseada em conteúdo e bioinformática. Formalmente, os termos são definidos:
+
+\begin{itemize}
+	\item Uma \textit{palavra} é a unidade básica de dados discretos, definida como um item de um vocabulário indexado por ${1,\dots, V}$. As palavras são representadas usando vetores de base unitária que possuem um único componente igual a um  e todos os outros componentes igual a zero. Assim, usando sobrescritos para denotar componentes, a \textit{v}ésima palavra no vocabulário é representada por um $V$-vetor $w$ tal que $w^v = 1$ e $w^u = 0$ para $u \neq v$.
+	\item Um \textit{documento} é uma sequência de $N$ palavras denotadas por \textbf{w} $=(w_1,w_2,\dots,w_N)$, onde $w_n$ é a \textit{n}ésima palavra na sequência.
+	\item Um \textit{corpus} é a coleção de documentos \textit{M} denotados por \textbf{\textit{D}} $={\textbf{w}_1, \textbf{w}_2, \dots, \textbf{w}_M}$
+\end{itemize}
+
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=0.4]{figuras/lda1.png}
+	\caption{Representação gráfica de modelo de LDA. As caixas são "placas" representando réplicas. A placa externa representa documentos, enquanto a placa interna representa a escolha repetida de tópicos e palavras dentro de um documento.}
+	Fonte: \cite{blei2003}
+	\label{fig:lda}
+\end{figure}
+
+
+O modelo LDA é representado como um modelo gráfico probabilístico na Figura \ref{fig:lda}. Existem três níveis para a representação LDA. Os parâmetros $\alpha$ e $\beta$ são parâmetros de corpus, assumidos como amostrados uma vez no processo de geração de um corpus. As variáveis $\theta_d$ são variáveis no nível do documento, amostradas uma vez por documento. Finalmente, as variáveis $z_{dn}$ e $w_{dn}$ são variáveis no nível da palavra e são amostradas uma vez para cada palavra em cada documento.
 
 %http://conteudo.icmc.usp.br/CMS/Arquivos/arquivos_enviados/BIBLIOTECA_158_RT_409.pdf
 
