@@ -1,4 +1,4 @@
-\chapter{Metodologia}
+\chapter{Referencial Teórico}
 
 
 \section{Distribuição Beta}
@@ -11,7 +11,7 @@ f(y)=\frac {\Gamma(\alpha_1+\alpha_2)}{\Gamma(\alpha_1)\Gamma(\alpha_2)} y^{\alp
 
 em que $\Gamma$ é uma função gama e $I$ representa a função indicadora.
 
-Os parâmetros $\alpha_1$ e $\alpha_2$ são parâmetros de ajuste, por resultar em diferentes formas de densidade em $(0,1)$ através da escolha de $\alpha_1$ e $\alpha_2$. Geralmente quando $\alpha_1 = \alpha2$ as densidades são simétricas, assim, a distribuição beta pode ser vista como uma família de distribuições  \ref{fig06}.
+Os parâmetros $\alpha_1$ e $\alpha_2$ são parâmetros de ajuste, por resultar em diferentes formas de densidade em $(0,1)$ através da escolha de $\alpha_1$ e $\alpha_2$. Geralmente quando $\alpha_1 = \alpha2$ as densidades são simétricas, assim, a distribuição beta pode ser vista como uma família de distribuições na Figura \ref{fig06}.
 
 
 \begin{figure}[!h]
@@ -87,20 +87,17 @@ O Dirichlet é uma distribuição conveniente no simplex - está na família exp
 
 Para a maior compreensão da distribuição de Dirichlet, o trabalho de visualização foi replicado com base em \cite{liu2019}. Com $k=3$ e $2$-simplex, $k=(\alpha_1, \alpha_2, \alpha_3)$. 
 
-Em distribuições simétricas para valores de $\alpha<1$, a distruibuição se concentra nos cantos e ao longo dos limites do simplex. No caso de $\alpha=1$, $k=(1,1,1)$, produz uma distribuição uniforme, onde todos os pontos do simplex são igualmente prováveis. Para valores $\alpha>1$, a distribuição tende para o centro do simplex, como pode ser visto na \ref{fig08}. Conforme $\alpha_i$ aumenta, a distribuição se torna mais concentrada em torno do centro do simplex. 
-
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[keepaspectratio=true,scale=0.4]{figuras/dist-diri-simplex.png}
+	\includegraphics[keepaspectratio=true,scale=0.35]{figuras/dist-diri-simplex.png}
 	\caption{Distribuição de $\alpha_1$, $\alpha_2$ e $\alpha_3$ no 2-simplex}
 	Fonte: do próprio autor
 	\label{fig08}
 \end{figure}
 
 
-Como especificado em \ref{dir:var}, é possível observar que quanto maior o valor de $\alpha_i$, menor a variância na Figura \ref{fig09} que contém um conjunto de cinco distribuições Dirichlet, com $i=10$ e todos os $\alpha$ são iguais. Para cada distribuição a $\sum_{i=1}^{10} \alpha_i = 1$.
-
+Em distribuições simétricas para valores de $\alpha<1$, a distruibuição se concentra nos cantos e ao longo dos limites do simplex. No caso de $\alpha=1$, $k=(1,1,1)$, produz uma distribuição uniforme, onde todos os pontos do simplex são igualmente prováveis. Para valores $\alpha>1$, a distribuição tende para o centro do simplex, como pode ser visto na Figura \ref{fig08}. Conforme $\alpha_i$ aumenta, a distribuição se torna mais concentrada em torno do centro do simplex. 
 
 
 \begin{figure}[!h]
@@ -111,34 +108,7 @@ Como especificado em \ref{dir:var}, é possível observar que quanto maior o val
 	\label{fig09}
 \end{figure}
 
-
-
-\section{Processo Bernoulli}
-
-Segundo \cite{bertsekas2008} o processo de Bernoulli pode ser visualizado como uma sequência independente de jogadas de moedas, onde a probabilidade de ser cara em cada jogada é um número fixo p na faixa $0 < p < 1$. Em geral, o processo de Bernoulli consiste em uma sequência de tentativas de Bernoulli, onde cada tentativa produz um 1 (um sucesso) com probabilidade $p$, e um 0 (falha) com probabilidade $1 - p$, independentemente do que acontece em outros ensaios.
-
-Naturalmente, o lançamento de moeda é apenas um paradigma para uma ampla gama de contextos envolvendo uma seqüência de resultados binários independentes. Por exemplo, um processo de Bernoulli é freqüentemente usado para modelar sistemas envolvendo chegadas de clientes ou trabalhos em centros de serviços. O tempo é discretizado em períodos, e um “sucesso” na tentativa $k$ está associado à chegada de pelo menos um cliente no centro de serviços durante o $k$-ésimo período.
-
-Em uma descrição mais formal, é definido o processo de Bernoulli como uma sequência $X1, X2, \dots$ de variáveis aleatórias independentes de Bernoulli $X_{i}$ com
-
-$$P(X_{i} = 1) = \textbf{P}(\textit{sucesso na i-ésima tentativa}) = p $$
-$$P(X_{i} = 0) = \textbf{P}(\textit{falha na i-ésima tentativa}) = 1-p $$
-
-
-para cada $i$. Generalizando a partir do caso de um número finito de variáveis aleatórias, a independência de uma sequência \textit{infinita} de variáveis aleatórias de $X_i$ é definida pela exigência de que as variáveis aleatórias $X1, X2, \dots$ seja independentes para qualquer $n$ finito.
-
-
-%\subsection{Independência e ausência de memória}
-\begin{itemize}
-	\item Independência e ausência de memória
-\end{itemize}
-
-O pressuposto de independência por trás do processo de Bernoulli tem implicações importantes, incluindo uma propriedade de ausência de memória (o que quer que tenha acontecido em testes anteriores não fornece informações sobre os resultados de ensaios futuros). Uma apreciação e compreensão intuitiva de tais propriedades é muito útil e permite a rápida solução de muitos problemas que seriam difíceis com uma abordagem mais formal.
-
-De acordo com \cite{bertsekas2008} com duas variáveis aleatórias desse tipo e se os dois conjuntos de tentativas que os definem não tiverem um elemento comum, essas variáveis aleatórias serão independentes. Se duas variáveis aleatórias $U$ e $V$ são independentes, então quaisquer duas funções delas, $g(U)$ e $h(V)$, também são independentes.
-
-Supondo que um processo de Bernoulli tenha sido executado por $n$ vezes, e que tenha sido observado os valores experimentais de $X1, X2, ..., Xn$. É notado que a sequência de futuros ensaios $Xn + 1, Xn + 2, ...$ são ensaios independentes de Bernoulli e, portanto, formam um processo de Bernoulli. Além disso, esses testes futuros são independentes dos anteriores. \cite{bertsekas2008} conclui que, a partir de qualquer dado momento, o futuro também é modelado por um processo de Bernoulli, independente do passado. Se faz referência assim, a como a propriede de \textbf{novo início} do processo de Bernoulli.
-
+Como especificado na Equação \ref{dir:var}, é possível observar que quanto maior o valor de $\alpha_i$, menor a variância na Figura \ref{fig09} que contém um conjunto de cinco distribuições Dirichlet, com $i=10$ e todos os $\alpha$ são iguais. Para cada distribuição a $\sum_{i=1}^{10} \alpha_i = 1$.
 
 
 \section{Aprendizado de Máquina}
@@ -240,6 +210,60 @@ p(E|c) = p(x_1, x_2, \dots, x_n|c) = \prod_{i=1}^{n} p(x_i|c)
 %https://scikit-learn.org/stable/modules/naive_bayes.html
 
 %http://www.cs.unb.ca/~hzhang/publications/FLAIRS04ZhangH.pdf
+\subsection{Processo Bernoulli}
+
+Segundo \cite{bertsekas2008} o processo de Bernoulli pode ser visualizado como uma sequência independente de jogadas de moedas, onde a probabilidade de ser cara em cada jogada é um número fixo p na faixa $0 < p < 1$. Em geral, o processo de Bernoulli consiste em uma sequência de tentativas de Bernoulli, onde cada tentativa produz um 1 (um sucesso) com probabilidade $p$, e um 0 (falha) com probabilidade $1 - p$, independentemente do que acontece em outros ensaios.
+
+Naturalmente, o lançamento de moeda é apenas um paradigma para uma ampla gama de contextos envolvendo uma seqüência de resultados binários independentes. Por exemplo, um processo de Bernoulli é freqüentemente usado para modelar sistemas envolvendo chegadas de clientes ou trabalhos em centros de serviços. O tempo é discretizado em períodos, e um “sucesso” na tentativa $k$ está associado à chegada de pelo menos um cliente no centro de serviços durante o $k$-ésimo período.
+
+Em uma descrição mais formal, é definido o processo de Bernoulli como uma sequência $X1, X2, \dots$ de variáveis aleatórias independentes de Bernoulli $X_{i}$ com
+
+$$P(X_{i} = 1) = \textbf{P}(\textit{sucesso na i-ésima tentativa}) = p $$
+$$P(X_{i} = 0) = \textbf{P}(\textit{falha na i-ésima tentativa}) = 1-p $$
+
+
+para cada $i$. Generalizando a partir do caso de um número finito de variáveis aleatórias, a independência de uma sequência \textit{infinita} de variáveis aleatórias de $X_i$ é definida pela exigência de que as variáveis aleatórias $X1, X2, \dots$ seja independentes para qualquer $n$ finito.
+
+
+%\subsection{Independência e ausência de memória}
+\begin{itemize}
+	\item Independência e ausência de memória
+\end{itemize}
+
+O pressuposto de independência por trás do processo de Bernoulli tem implicações importantes, incluindo uma propriedade de ausência de memória (o que quer que tenha acontecido em testes anteriores não fornece informações sobre os resultados de ensaios futuros). Uma apreciação e compreensão intuitiva de tais propriedades é muito útil e permite a rápida solução de muitos problemas que seriam difíceis com uma abordagem mais formal.
+
+De acordo com \cite{bertsekas2008} com duas variáveis aleatórias desse tipo e se os dois conjuntos de tentativas que os definem não tiverem um elemento comum, essas variáveis aleatórias serão independentes. Se duas variáveis aleatórias $U$ e $V$ são independentes, então quaisquer duas funções delas, $g(U)$ e $h(V)$, também são independentes.
+
+Supondo que um processo de Bernoulli tenha sido executado por $n$ vezes, e que tenha sido observado os valores experimentais de $X1, X2, ..., Xn$. É notado que a sequência de futuros ensaios $Xn + 1, Xn + 2, ...$ são ensaios independentes de Bernoulli e, portanto, formam um processo de Bernoulli. Além disso, esses testes futuros são independentes dos anteriores. \cite{bertsekas2008} conclui que, a partir de qualquer dado momento, o futuro também é modelado por um processo de Bernoulli, independente do passado. Se faz referência assim, a como a propriede de \textbf{novo início} do processo de Bernoulli.
+
+\subsection{Modelo Bernoulli}
+
+Segundo \cite{nigam1998} o modelo multivariado de Bernoulli é uma rede Bayesiana sem dependências entre palavras e recursos de palavras binárias,
+que gera um indicador para cada termo do vocabulário. Seja $1$ para indicar a presença do termo no documento ou $ 0 $ para indicar ausência.
+Como o modelo multinomial, esse modelo é popular para tarefas de classificação de documentos.
+
+O modelo não captura o número de vezes que cada palavra ocorre e inclui a probabilidade de não ocorrência de palavras que não aparecem no documento.
+
+
+
+
+%No evento de modelo multivariado de Bernoulli, um documento é um vetor binário. Dado um vocabulário V, cada dimensão de espaço \textit{t}, $t E {1, \dots, |V|}$, corresponde a palavra $w_t$ do vocabulário. A dimensão \textit{t} do vetor de documento $d_i$ é escrita $B_{it}$, pode ser $0$ ou $1$, indicando se a palavra $w_t$ ocorre pelo menos uma vez no documento. Com essa representação de documento 
+
+
+%Segundo \cite{manning2008} o modelo de Bernoulli ou  modelo multivariado de Bernoulli
+%, como uma alternativa ao modelo multinomial,
+%é equivalente ao modelo de independência binária, que gera um indicador para cada termo do vocabulário. Seja $1$ para indicar a presença do termo no documento ou $ 0 $ para indicar ausência. %Já o modelo multinomial captura informações de frequência de palavras em documentos. %A Figura 13.3 apresenta algoritmos de treinamento e teste para o modelo de Bernoulli. O modelo de Bernoulli tem a mesma complexidade de tempo que o modelo multinomial.
+
+
+%modelo não captura o número de vezes que cada palavra ocorre e inclui explicitamente a probabilidade de não ocorrência de palavras que não aparecem no documento.
+
+
+%Com essa representação de documento, a suposição de Naive Bayes: que a probabilidade de cada palavra que ocorre em um documento é independente da ocorrência de outras palavras em um documento.
+
+%Esse modelo não captura o número de vezes que cada palavra ocorre e inclui explicitamente a probabilidade de não ocorrência de palavras que não aparecem no documento
+
+
+
 
 
 \section{Análise de Componentes Principais}
