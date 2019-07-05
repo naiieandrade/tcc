@@ -1,17 +1,20 @@
 \chapter{Referencial Teórico}
 
+\section{Modelos Estatísticos}
 
-\section{Distribuição Beta}
+Começamos esta seção descrevendo os principais modelos estatísticos utilizados para gerar dados sintéticos para o EJ. A utilização de modelos adequados é importante para gerar dados fidedignos em que conhecemos o resultado correto para que possamos exercitar os modelos de classificação utilizados no EJ e compará-los com a realidade conhecida.
 
-Segundo \cite{gomes2005} a distribuição beta é muito utilizada para modelar experimentos aleatórios cujas variáveis assumem valoreos no intervalo $(0,1)$, dada a grande flexibilidade de ajuste que seus parâmetros proporcionam. Uma variável aleatória contínua $Y$ tem distribuição beta com parâmetros $\alpha_1 > 0$ e $\alpha_2 > 0$ e sua função de densidade de probabilidade da forma
+\subsection{Distribuição Beta}
+
+A distribuição beta é uma família de distribuições bastante flexivel e é muito utilizada para modelar experimentos aleatórios cujas variáveis assumem valores no intervalo $(0,1)$, dada a grande flexibilidade de ajuste que seus parâmetros proporcionam. Uma variável aleatória contínua $Y$ tem distribuição beta com parâmetros $\alpha_1 > 0$ e $\alpha_2 > 0$ e sua função de densidade de probabilidade da forma
 
 \begin{equation}
-f(y)=\frac {\Gamma(\alpha_1+\alpha_2)}{\Gamma(\alpha_1)\Gamma(\alpha_2)} y^{\alpha_1-1}(1-y)^{\alpha_2-1}I_{(0,1)}(y)
+f(y)=\frac {\Gamma(\alpha_1+\alpha_2)}{\Gamma(\alpha_1)\Gamma(\alpha_2)} y^{\alpha_1-1}(1-y)^{\alpha_2-1}
 \end{equation}
+%
+em que $\Gamma$ é uma função gama.
 
-em que $\Gamma$ é uma função gama e $I$ representa a função indicadora.
-
-Os parâmetros $\alpha_1$ e $\alpha_2$ são parâmetros de ajuste, por resultar em diferentes formas de densidade em $(0,1)$ através da escolha de $\alpha_1$ e $\alpha_2$. Geralmente quando $\alpha_1 = \alpha2$ as densidades são simétricas, assim, a distribuição beta pode ser vista como uma família de distribuições na Figura \ref{fig06}.
+Os parâmetros $\alpha_1$ e $\alpha_2$ são parâmetros de ajuste, por resultar em diferentes formas de densidade em $(0,1)$ através da escolha de $\alpha_1$ e $\alpha_2$. Isso acontece sempre quando $\alpha_1 = \alpha2$ as densidades são simétricas, assim, a distribuição beta pode ser vista como uma família de distribuições na Fig. \ref{fig06}.
 
 
 \begin{figure}[!h]
@@ -23,15 +26,19 @@ Os parâmetros $\alpha_1$ e $\alpha_2$ são parâmetros de ajuste, por resultar 
 \end{figure}
 
 
-Ao se fixar $\alpha_2$, no lado esquerdo da \ref{fig07}, é obtido a variação de densidade beta para diferentes valores de $\alpha_1$; O mesmo acontece ao se fixar o $\alpha_1$, no lado direito da \ref{fig07}, é obtido a variação de densidade beta para diferentes valores de $\alpha_2$. Ao permutar $\alpha_1$ e $\alpha_2$ ocorre uma reflexão em torno da reta $y = 0,5$, devido à expressão da densidade como função de $y$ e $y-1$. 
+Ao se fixar $\alpha_2$, no lado esquerdo da Fig. \ref{fig07}, é obtido a variação de densidade beta para diferentes valores de $\alpha_1$; O mesmo acontece ao se fixar o $\alpha_1$, no lado direito da Fig. \ref{fig07}, é obtido a variação de densidade beta para diferentes valores de $\alpha_2$. Ao permutar $\alpha_1$ e $\alpha_2$ ocorre uma reflexão em torno da reta $y = 0,5$, devido à expressão da densidade como função de $y$ e $y-1$. 
 
 Se $Y$ tem distribuição beta, a esperança é dada por
 
-$$ E(Y) = \frac {\alpha_1}{\alpha_1 + \alpha_2} $$
-
+\begin{equation}
+E(Y) = \frac {\alpha_1}{\alpha_1 + \alpha_2}
+\end{equation}
+%
 e a variância é dada por
 
-$$ Var(Y) = \frac{\alpha_1\alpha_2}{(\alpha_1+\alpha_2)^2(\alpha_1+\alpha_2+1)} $$
+\begin{equation}
+Var(Y) = \frac{\alpha_1\alpha_2}{(\alpha_1+\alpha_2)^2(\alpha_1+\alpha_2+1)}.
+\end{equation}
 
 
 \begin{figure}[!h]
@@ -43,29 +50,28 @@ $$ Var(Y) = \frac{\alpha_1\alpha_2}{(\alpha_1+\alpha_2)^2(\alpha_1+\alpha_2+1)} 
 \end{figure}
 
 
-Através da equação da variância pode-se observar que a variabilidade de $Y$ diminui à medida que se aumenta os valores dos dois parâmetro; pode ser visto na Figura \ref{fig06} quando as distribuições são simétricas.
+Através da equação da variância pode-se observar que a variabilidade de $Y$ diminui à medida que se aumenta os valores dos dois parâmetro; pode ser visto na Fig. \ref{fig06} quando as distribuições são simétricas.
 
 
-\section{Distribuição Dirichlet}
+\subsection{Distribuição Dirichlet}
 
 
-Segundo \apud{lovelace1998}{barbosa2018} a distribuição de Dirichlet é uma família de distribuições de probabilidade multivariada contínuas, parametrizada por um vetor de parâmetros $\alpha$, denotada por $Dir(\alpha)$. É uma generalização multivariada da distribuição Beta, podendo ser empregada no estudo da distribuição de vetores aleatórios, cuja as variáveis aleatórias estejam compreendidas no intervalo (0,1) e a soma é igual a 1.
+A distribuição de Dirichlet é uma família de distribuições de probabilidade multivariada contínuas, parametrizada por um vetor de parâmetros $\alpha$, denotada por $Dir(\alpha)$. É uma generalização multivariada da distribuição Beta, podendo ser empregada no estudo da distribuição de vetores aleatórios, cuja as variáveis aleatórias estejam compreendidas no intervalo (0,1) e a soma é igual a 1 \apud{lovelace1998}{barbosa2018}.
 
-Seja $\textbf{p}$ um vetor aleatório cujos elementos somam 1, de modo que $p_{k}$ represente a proporção do item \textit{k}. De acordo \cite{minka2000}, sob o modelo de Dirichlet com o vetor de parâmetros $\alpha$, a densidade de probabilidade em $\textbf{p}$ é
-
+Seja $\textbf{p}$ um vetor aleatório cujos elementos somam 1, de modo que $p_{k}$ represente a proporção do item \textit{k} \cite{minka2000}. Sob o modelo de Dirichlet com o vetor de parâmetros $\alpha$, a densidade de probabilidade em $\textbf{p}$ é
 
 \begin{equation}
-p(\boldsymbol {p}) \sim \mathcal{D}(\alpha_{1},\dots,\alpha_{k}) = \frac {\Gamma(\sum_{k} \alpha_{k})}{\prod_{k}\Gamma(\alpha_{k})} \prod_{k} p_{k}^{\alpha_{k}-1}
+p(\boldsymbol {p}) \sim \mathcal{D}(\alpha_{1},\dots,\alpha_{k}) = \frac {\Gamma(\sum_{k} \alpha_{k})}{\prod_{k}\Gamma(\alpha_{k})} \prod_{k} p_{k}^{\alpha_{k}-1},
 \end{equation}
+%
+onde $p_{k} > 0$ 
 
-
-Onde $p_{k} > 0$ 
 \begin{equation}
-\sum_{k} p_{k} = 1
+\sum_{k} p_{k} = 1.
 \end{equation}    
 
 O parâmetro $\alpha$ é um vetor $k$ com componentes $\alpha_i > 0$, e onde $\Gamma(x)$ é a função Gamma \cite{blei2003}.
-Os parâmetros $\alpha$ são estritamente positivos e um fato importante é que as densidades marginais da distribuição Dirichlet são beta \cite{gomes2005}.
+Os parâmetros $\alpha$ são estritamente positivos e um fato importante é que as densidades marginais da distribuição Dirichlet são distribuições beta \cite{gomes2005}.
 
 Seja $\phi = \sum_{i=1}^{p} \alpha_i$
 
@@ -77,53 +83,66 @@ E(Y_i) = \frac{\alpha_i}{\phi}, \quad i = 1, \dots, p-1,
 \begin{equation} \label{dir:var}
 Var(Y_i) = \frac{\alpha_i(\phi-\alpha_i)}{\phi^2(\phi+1)}, \quad i = 1, \dots, p-1,
 \end{equation} 
-
-
-
-Segundo \cite{blei2003} uma variável aleatória Dirichlet $k$-dimensional $\theta$ pode assumir valores no $(k-1)$-simplex (um vetor-$k$ $\theta$ encontra-se no $(k-1)$-simplex se $\theta_i \geq 0$,
+%
+uma variável aleatória Dirichlet $k$-dimensional $\theta$ pode assumir valores no $(k-1)$-simplexo (um vetor-$k$ $\theta$ encontra-se no $(k-1)$-simplex se $\theta_i \geq 0$,
 $\sum_{i=1}^{k} \theta_i =1)$. 
-O Dirichlet é uma distribuição conveniente no simplex - está na família exponencial, tem estatísticas suficientes de dimensão finita e é conjugada à distribuição multinomial.
+O Dirichlet é uma distribuição conveniente no simplexo - está na família exponencial, tem estatísticas suficientes de dimensão finita e é conjugada à distribuição multinomial \cite{blei2003}.
 
 
-Para a maior compreensão da distribuição de Dirichlet, o trabalho de visualização foi replicado com base em \cite{liu2019}. Com $k=3$ e $2$-simplex, $k=(\alpha_1, \alpha_2, \alpha_3)$. 
+Para a maior compreensão da distribuição de Dirichlet, o trabalho de visualização foi replicado com base em Liu (\citeyear{liu2019}). Com $k=3$ e $2$-simplexo, $k=(\alpha_1, \alpha_2, \alpha_3)$. Cada ponta do triângulo corresponde a uma coordenada diferente. 
 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[keepaspectratio=true,scale=0.35]{figuras/dist-diri-simplex.png}
-	\caption{Distribuição de $\alpha_1$, $\alpha_2$ e $\alpha_3$ no 2-simplex}
-	Fonte: do próprio autor
+	\includegraphics[keepaspectratio=true,scale=0.4]{figuras/dist-diri-simplex.png}
+	\caption{Distribuição de $\alpha_1$, $\alpha_2$ e $\alpha_3$ no 2-simplexo}
 	\label{fig08}
 \end{figure}
 
 
-Em distribuições simétricas para valores de $\alpha<1$, a distruibuição se concentra nos cantos e ao longo dos limites do simplex. No caso de $\alpha=1$, $k=(1,1,1)$, produz uma distribuição uniforme, onde todos os pontos do simplex são igualmente prováveis. Para valores $\alpha>1$, a distribuição tende para o centro do simplex, como pode ser visto na Figura \ref{fig08}. Conforme $\alpha_i$ aumenta, a distribuição se torna mais concentrada em torno do centro do simplex. 
+Em distribuições simétricas para valores de $\alpha<1$, a distruibuição se concentra nos cantos e ao longo dos limites do simplexo. No caso de $\alpha=1$, $k=(1,1,1)$, produz uma distribuição uniforme, onde todos os pontos do simplexo são igualmente prováveis. Para valores $\alpha>1$, a distribuição tende para o centro do simplexo, como pode ser visto na Fig. \ref{fig08}. Conforme $\alpha_i$ aumenta, a distribuição se torna mais concentrada em torno do centro do simplexo. 
 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[keepaspectratio=true,scale=0.7]{figuras/dist-diri-var.png}
-	\caption{Distribuição Dirichlet com $i=10$ e variações de $\alpha$ = 0,001, 1, 10 e 100 }
-	Fonte: do próprio autor
-	\label{fig09}
+	\includegraphics[keepaspectratio=true,scale=0.4]{figuras/resultados-dist-dir-01-3.png}
+	\caption{Distribuição Dirichlet com $i=15$ e variações de $\alpha$ = 0,1 }
+	\label{dist-dir:alpha01}
 \end{figure}
 
-Como especificado na Equação \ref{dir:var}, é possível observar que quanto maior o valor de $\alpha_i$, menor a variância na Figura \ref{fig09} que contém um conjunto de cinco distribuições Dirichlet, com $i=10$ e todos os $\alpha$ são iguais. Para cada distribuição a $\sum_{i=1}^{10} \alpha_i = 1$.
+Como especificado na Eq. \ref{dir:var} é possível observar que quanto maior o valor de $\alpha_i$, menor a variância. %Com três $\alpha's = 0.1$ iguais com a distribuição na Fig. \ref{dist-dir:alpha01}
+Na Fig. \ref{dist-dir:alpha01} a distribuição possui três $\alpha$s iguais, onde $\alpha=0.1$ e é possível notar a maior variância na distribuição quando comparado as Fig. \ref{dist-dir:alpha1} e Fig. \ref{dist-dir:alpha10}.
+
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=0.4]{figuras/resultados-dist-dir-1-3.png}
+	\caption{Distribuição Dirichlet com $i=15$ e variações de $\alpha$ = 1 }
+	\label{dist-dir:alpha1}
+\end{figure}
+
+Na Fig. \ref{dist-dir:alpha10} $\alpha=10$ a variância diminui. Com $i=15$ e todos os $\alpha$ são iguais. Para cada distribuição, para cada $i$, $\sum_{i=1}^{3} \alpha_i = 1$.
+
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=0.4]{figuras/resultados-dist-dir-10-3.png}
+	\caption{Distribuição Dirichlet com $i=15$ e variações de $\alpha$ = 10 }
+	\label{dist-dir:alpha10}
+\end{figure}
 
 
 \section{Aprendizado de Máquina}
 
 Aprendizado de Máquina (AM) é uma área de Inteligência Artificial (IA) cujo objetivo é o desenvolvimento de técnicas computacionais sobre o aprendizado bem como a construção de sistemas capazes de adquirir conhecimento de forma automática. Um sistema de aprendizado é um programa de computador que toma decisões baseado em experiências acumuladas através da solução bem sucedidade de problema anteriories \cite{monard2003}. 
 
-\cite{mitchell1997} define que um programa computacional aprende a partir da experiencia E, em relação a uma classe de tarefas T, com medida de desempenho P, se seu desempenho nas tarefas T, medida por P, melhora com a experiência E.
+%\cite{mitchell1997} define que um programa computacional aprende a partir da experiencia E, em relação a uma classe de tarefas T, com medida de desempenho P, se seu desempenho nas tarefas T, medida por P, melhora com a experiência E.
 
+A indução é a forma de inferência lógica que permite obter conclusões genéricas sobre um conjunto particular de exemplos. 
+Ela é caracterizada como o raciocínio que se origina em um conceito específico e o generaliza, ou seja, da parte para o todo. É um dos principais métodos utilizados para derivar conhecimento novo e predizer eventos futuros. O aprendizado indutivo é efetuado a partir de raciocínio sobre exemplos fornecidos por um processo externo ao sistema de aprendizado.
 
-A indução é a forma de inferência lógica que permite obter conclusões genéricas sobre um
-conjunto particular de exemplos. Ela é caracterizada como o raciocínio que se origina em um conceito específico e o generaliza, ou seja, da parte para o todo. É um dos principais métodos utilizados para derivar conhecimento novo e predizer eventos futuros. 
-
-
-O aprendizado indutivo é efetuado a partir de raciocínio sobre exemplos fornecidos por um processo externo ao sistema de aprendizado. O aprendizado indutivo pode ser dividido em supervisionado e não-supervisionado. 
-
+Os algoritmos de aprendizado de máquina são tipicamente classificados como supervisionados, quando são treinados a partir de um conjunto de exemplos, e não-supervisionados, quando trabalham com dados brutos sem usar um conjunto de exemplos pré-preparado.
+ %O aprendizado indutivo pode ser dividido em supervisionado e não-supervisionado. 
 Os algoritmos de AM são utilizados para detecção de fraudes, análise de crédito, sistemas de recomendação, mecanismos de buscas, entre outros.
 
 
@@ -133,7 +152,7 @@ Os algoritmos de AM são utilizados para detecção de fraudes, análise de cré
 
 No aprendizado supervisionado é fornecido ao algoritmo de aprendizado, ou indutor, um conjunto de exemplos de treinamento para os quais o rótulo (\textit{label}) da classe associada é conhecido.
 
-Em geral, cada exemplo é descrito por um vetor de valores de características, ou atributos, e o rótulo da classe associada. O objetivo do algoritmo de indução é construir um classificador que possa determinar corretamente a classe de novos exemplos ainda não rotulados, ou seja, exemplos que não tenham o rótulo da classe. Para rótulos de classe discretos, esse problema é conhecido como classificação e para valores contínuos como regressão. \cite{monard2003}
+Em geral, cada exemplo é descrito por um vetor de valores de características, ou atributos, e o rótulo da classe associada. O objetivo do algoritmo de indução é construir um classificador que possa determinar corretamente a classe de novos exemplos ainda não rotulados, ou seja, exemplos que não tenham o rótulo da classe. Para rótulos de classe discretos, esse problema é conhecido como classificação e para valores contínuos como regressão \cite{monard2003}. 
 
 
 
@@ -151,7 +170,7 @@ O número de estratégias diferentes para a formação de \textit{cluster} é en
 
 %O Classificador Naive Bayes é provavelmente o classificador mais utilizado em AM APUD BEM AQUI. O classificador é denominado ingênuo (\textit{naive}) por assumir que os atributos são condicionalmente independentes, ou seja, a informação de um evento não é informativa sobre nenhum outro \cite{oguri2007}. Apesar desta premissa "ingênua" e simplista, o classificador reporta o melhor desempenho em várias tarefas de classificação.
 
-Segundo \cite{zhang2004} Naive Bayes é um dos mais eficientes e eficazes algoritmos de aprendizado indutivo para aprendizado de máquina e mineração de dados. É a forma mais simples de rede Bayesiana, na qual todos os atributos são independentes, dado o valor da variável de classe. Isso é chamado de independência condicional, que raramente é verdadeira na maioria das aplicações do mundo real, refletindo o bom desempenho.
+Naive Bayes é um dos mais eficientes e eficazes algoritmos de aprendizado indutivo para aprendizado de máquina e mineração de dados. É a forma mais simples de rede Bayesiana, na qual todos os atributos são independentes, dado o valor da variável de classe. Isso é chamado de independência condicional, que raramente é verdadeira na maioria das aplicações do mundo real. No entanto, esta aproximação muitas vezes se mostra útil e implica em um bom desempenho computacional \cite{zhang2004}.
 
 %Uma abordagem direta para superar a limitação de ingênuos Bayes é estender sua estrutura para representar explicitamente as dependências entre os atributos.
 
@@ -165,19 +184,24 @@ Um classificador é uma função que atribui um rótulo de classe a um exemplo. 
 
 
 \begin{equation}
-p(c,E) = \frac{p(E|c)p(c)}{p(E)}
+p(c,E) = \frac{p(E|c)p(c)}{p(E)},
 \end{equation} 
-
+%
+onde $p(c)$ é a probabilidade a priori de cada classe, $p(E|c)$ é a probabilidade do exemplo ser gerado dentro de determinada classe e $p(E)$ é uma constante de normalização.
 Suponha que todos os atributos sejam independentes, dado o valor da variável de classe; isso é,
 
 \begin{equation}
-p(E|c) = p(x_1, x_2, \dots, x_n|c) = \prod_{i=1}^{n} p(x_i|c)
+p(E|c) = p(x_1, x_2, \dots, x_n|c) = \prod_{i=1}^{n} p(x_i|c).
 \end{equation}
 
-\apud{domingos1997}{zhang2004} explica que Naive Bayes deve seu bom desempenho à função de perda zero-um. Essa função define o erro como o número de classificações incorretas \apud{friedman1997}{zhang2004}. Ao contrário de outras funções de perda, como o erro quadrado, a função de perda zero-um não penaliza a estimativa de probabilidade imprecisa, desde que a probabilidade máxima seja atribuída à classe correta. Isto significa que Naive Bayes pode mudar as probabilidades posteriores de cada classe, mas a classe com a probabilidade posterior máxima é muitas vezes inalterada. Assim, a classificação ainda está correta, embora a estimativa de probabilidade seja ruim.
+Naive Bayes é uma família de métodos, já que cada escolha de $p(E|c)$ e $p(c)$ produz um método diferente.
+
+Naive Bayes deve seu bom desempenho à função de perda zero-um \apud{domingos1997}{zhang2004}. Essa função define o erro como o número de classificações incorretas. Ao contrário de outras funções de perda, como o erro quadrado, a função de perda zero-um não penaliza a estimativa de probabilidade imprecisa, desde que a probabilidade máxima seja atribuída à classe correta. Isto significa que Naive Bayes pode mudar as probabilidades posteriores de cada classe, mas a classe com a probabilidade posterior máxima é muitas vezes inalterada. Assim, a classificação ainda está correta, embora a estimativa de probabilidade seja ruim \apud{friedman1997}{zhang2004}.
 
 
-\cite{zhang2004} propôs uma nova explicação sobre o desempenho de classificação de Naive Bayes: a distribuição de dependência desempenha um papel crucial a classificação. Mesmo com fortes dependências, Naive Bayes ainda funciona bem; ou seja, quando essas dependências se anulam, não há influência na classificação. %Nesse caso, Naive Bayes ainda é o classificador ideal. 
+Zhang (\citeyear{zhang2004}) propôs uma nova explicação sobre o desempenho de classificação de Naive Bayes: a distribuição de dependência desempenha um papel crucial a classificação. Mesmo com fortes dependências, Naive Bayes ainda funciona bem; ou seja, quando essas dependências se anulam, não há influência na classificação. 
+
+%Nesse caso, Naive Bayes ainda é o classificador ideal. 
 %Além disso, investigamos a otimalidade de Naive Bayes sob a distribuição gaussiana e apresentamos a condição explícita e suficiente sob a qual Naive Bayes é ótimo, mesmo que a suposição de independência condicional seja violada.
 
 
@@ -212,16 +236,15 @@ p(E|c) = p(x_1, x_2, \dots, x_n|c) = \prod_{i=1}^{n} p(x_i|c)
 %http://www.cs.unb.ca/~hzhang/publications/FLAIRS04ZhangH.pdf
 \subsection{Processo Bernoulli}
 
-Segundo \cite{bertsekas2008} o processo de Bernoulli pode ser visualizado como uma sequência independente de jogadas de moedas, onde a probabilidade de ser cara em cada jogada é um número fixo p na faixa $0 < p < 1$. Em geral, o processo de Bernoulli consiste em uma sequência de tentativas de Bernoulli, onde cada tentativa produz um 1 (um sucesso) com probabilidade $p$, e um 0 (falha) com probabilidade $1 - p$, independentemente do que acontece em outros ensaios.
+O processo de Bernoulli pode ser visualizado como uma sequência independente de jogadas de moedas, onde a probabilidade de ser cara em cada jogada é um número fixo $p$ na faixa $0 < p < 1$. Em geral, o processo de Bernoulli consiste em uma sequência de tentativas de Bernoulli, onde cada tentativa produz um 1 (um sucesso) com probabilidade $p$, e um 0 (falha) com probabilidade $1 - p$, independentemente do que acontece em outros ensaios \cite{bertsekas2008}.
 
 Naturalmente, o lançamento de moeda é apenas um paradigma para uma ampla gama de contextos envolvendo uma seqüência de resultados binários independentes. Por exemplo, um processo de Bernoulli é freqüentemente usado para modelar sistemas envolvendo chegadas de clientes ou trabalhos em centros de serviços. O tempo é discretizado em períodos, e um “sucesso” na tentativa $k$ está associado à chegada de pelo menos um cliente no centro de serviços durante o $k$-ésimo período.
 
 Em uma descrição mais formal, é definido o processo de Bernoulli como uma sequência $X1, X2, \dots$ de variáveis aleatórias independentes de Bernoulli $X_{i}$ com
 
-$$P(X_{i} = 1) = \textbf{P}(\textit{sucesso na i-ésima tentativa}) = p $$
-$$P(X_{i} = 0) = \textbf{P}(\textit{falha na i-ésima tentativa}) = 1-p $$
-
-
+$$P(X_{i} = 1) = \textbf{P}(\textit{sucesso na i-ésima tentativa}) = p, $$
+$$P(X_{i} = 0) = \textbf{P}(\textit{falha na i-ésima tentativa}) = 1-p, $$
+%
 para cada $i$. Generalizando a partir do caso de um número finito de variáveis aleatórias, a independência de uma sequência \textit{infinita} de variáveis aleatórias de $X_i$ é definida pela exigência de que as variáveis aleatórias $X1, X2, \dots$ seja independentes para qualquer $n$ finito.
 
 
@@ -230,21 +253,21 @@ para cada $i$. Generalizando a partir do caso de um número finito de variáveis
 	\item Independência e ausência de memória
 \end{itemize}
 
-O pressuposto de independência por trás do processo de Bernoulli tem implicações importantes, incluindo uma propriedade de ausência de memória (o que quer que tenha acontecido em testes anteriores não fornece informações sobre os resultados de ensaios futuros). Uma apreciação e compreensão intuitiva de tais propriedades é muito útil e permite a rápida solução de muitos problemas que seriam difíceis com uma abordagem mais formal.
+O pressuposto de independência por trás do processo de Bernoulli tem implicações importantes, incluindo propriedade de ausência de memória (o que quer que tenha acontecido em testes anteriores não fornece informações sobre os resultados de ensaios futuros). Uma apreciação e compreensão intuitiva de tais propriedades é muito útil e permite a rápida solução de muitos problemas que seriam difíceis com uma abordagem mais formal.
 
-De acordo com \cite{bertsekas2008} com duas variáveis aleatórias desse tipo e se os dois conjuntos de tentativas que os definem não tiverem um elemento comum, essas variáveis aleatórias serão independentes. Se duas variáveis aleatórias $U$ e $V$ são independentes, então quaisquer duas funções delas, $g(U)$ e $h(V)$, também são independentes.
+Com duas variáveis aleatórias desse tipo e se os dois conjuntos de tentativas que os definem não tiverem um elemento comum, essas variáveis aleatórias serão independentes. Se duas variáveis aleatórias $U$ e $V$ são independentes, então quaisquer duas funções delas, $g(U)$ e $h(V)$, também são independentes \cite{bertsekas2008}.
 
-Supondo que um processo de Bernoulli tenha sido executado por $n$ vezes, e que tenha sido observado os valores experimentais de $X1, X2, ..., Xn$. É notado que a sequência de futuros ensaios $Xn + 1, Xn + 2, ...$ são ensaios independentes de Bernoulli e, portanto, formam um processo de Bernoulli. Além disso, esses testes futuros são independentes dos anteriores. \cite{bertsekas2008} conclui que, a partir de qualquer dado momento, o futuro também é modelado por um processo de Bernoulli, independente do passado. Se faz referência assim, a como a propriede de \textbf{novo início} do processo de Bernoulli.
+Supondo que um processo de Bernoulli tenha sido executado por $n$ vezes, e que tenha sido observado os valores experimentais de $X1, X2, ..., Xn$. É notado que a sequência de futuros ensaios $Xn + 1, Xn + 2, ...$ são ensaios independentes de Bernoulli e, portanto, formam um processo de Bernoulli. Além disso, esses testes futuros são independentes dos anteriores. \cite{bertsekas2008} conclui que, a partir de qualquer dado momento, o futuro também é modelado por um processo de Bernoulli, independente do passado. Se faz referência assim, a como a propriede de novo início do processo de Bernoulli.
 
 \subsection{Modelo Bernoulli}
 
-Segundo \cite{nigam1998} o modelo multivariado de Bernoulli é uma rede Bayesiana sem dependências entre palavras e recursos de palavras binárias,
+O modelo multivariado de Bernoulli é uma rede Bayesiana sem dependências entre palavras e recursos de palavras binárias,
 que gera um indicador para cada termo do vocabulário. Seja $1$ para indicar a presença do termo no documento ou $ 0 $ para indicar ausência.
-Como o modelo multinomial, esse modelo é popular para tarefas de classificação de documentos.
+Como o modelo multinomial, esse modelo é popular para tarefas de classificação de documentos \cite{nigam1998}.
 
 O modelo não captura o número de vezes que cada palavra ocorre e inclui a probabilidade de não ocorrência de palavras que não aparecem no documento.
 
-
+No contexto deste trabalho, o modelo de Bernoulli pode descrever bem um conjunto de interações de um usuário com duas categorias - concorda e discorda - e diversas variáveis, uma para cada comentário.
 
 
 %No evento de modelo multivariado de Bernoulli, um documento é um vetor binário. Dado um vocabulário V, cada dimensão de espaço \textit{t}, $t E {1, \dots, |V|}$, corresponde a palavra $w_t$ do vocabulário. A dimensão \textit{t} do vetor de documento $d_i$ é escrita $B_{it}$, pode ser $0$ ou $1$, indicando se a palavra $w_t$ ocorre pelo menos uma vez no documento. Com essa representação de documento 
@@ -268,7 +291,7 @@ O modelo não captura o número de vezes que cada palavra ocorre e inclui a prob
 
 \section{Análise de Componentes Principais}
 
-Segundo \cite{sandanielo2015} a análise de componentes principais (ACP) é uma técnica multivariada de modelagem da estrutura de covariância. 
+A análise de componentes principais (ACP) é uma técnica multivariada de modelagem da estrutura de covariância \cite{sandanielo2015}. 
 % A técnica foi inicialmente descrita por Pearson (1901) e uma descrição de métodos computacionais práticos veio muito mais tarde com Hotelling (1933, 1936) que usou com o propósito determinado de analisar as estruturas de correlação. 
 Transforma linearmente um conjunto
 original de variáveis, inicialmente correlacionadas  entre si, num conjunto substancialmente menor de variáveis não correlacionadas que contém a maior parte da informação do conjunto original. 
@@ -318,10 +341,10 @@ etc.
 
 \section{Latent Dirichlet Allocation}
 
+A Alocação de Dirichlet Latente, do inglês Latent Dirichet Allocation (LDA), foi um modelo proposto inicialmente para estimar mistura genética, mas posteriormente foi desenvolvido de forma independente pela comunidade de processamento de textos. 
+LDA é um modelo probabilístico generativo de um corpus. A idéia básica é que os documentos são representados como misturas aleatórias sobre tópicos latentes, onde cada tópico é caracterizado por uma distribuição sobre palavras \cite{blei2003}.
 
-A alocação de Dirichlet latente (LDA) é um modelo probabilístico generativo de um corpus. A idéia básica é que os documentos são representados como misturas aleatórias sobre tópicos latentes, onde cada tópico é caracterizado por uma distribuição sobre palavras \cite{blei2003}.
-
-\cite{blei2003} usa a linguagem das coleções de texto em todo o documento, referindo-se a entidades como “palavras”, “documentos” e “corpora”. Isso é útil porque ajuda a guiar a intuição, quando são introduzidas variáveis latentes que visam capturar noções abstratas, como tópicos.
+Blei (\citeyear{blei2003}) usa a linguagem das coleções de texto em todo o documento, referindo-se a entidades como “palavras”, “documentos” e “corpora”. Isso é útil porque ajuda a guiar a intuição, quando são introduzidas variáveis latentes que visam capturar noções abstratas, como tópicos.
 É importante notar, no entanto, que o modelo de LDA não está necessariamente vinculado ao texto, e tem aplicações para outros problemas envolvendo coleções de dados, incluindo dados de domínios como filtragem colaborativa, recuperação de imagens baseada em conteúdo e bioinformática. Formalmente, os termos são definidos:
 
 \begin{itemize}
@@ -331,17 +354,105 @@ A alocação de Dirichlet latente (LDA) é um modelo probabilístico generativo 
 \end{itemize}
 
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[keepaspectratio=true,scale=0.4]{figuras/lda1.png}
-	\caption{Representação gráfica de modelo de LDA. As caixas são "placas" representando réplicas. A placa externa representa documentos, enquanto a placa interna representa a escolha repetida de tópicos e palavras dentro de um documento.}
-	Fonte: \cite{blei2003}
-	\label{fig:lda}
-\end{figure}
+%\begin{figure}[!h]
+%	\centering
+%	\includegraphics[keepaspectratio=true,scale=0.4]{figuras/lda1.png}
+%	\caption{Representação gráfica de modelo de LDA. As caixas são "placas" representando réplicas. A placa externa representa documentos, enquanto a placa interna representa a escolha repetida de tópicos e palavras dentro de um documento.}
+%	Fonte: \cite{blei2003}
+%	\label{fig:lda}
+%\end{figure}
+
+Uma variável aleatória Dirichlet $k$-dimensional $\theta$ pode assumir valores no $(k-1)$-simplexo (um $k$-vetor $\theta$ encontra-se no $(k-1)$-simplex se $\theta_i \neq 0$, $\sum_{i=1}^{k} \theta_i = 1)$, e tem a seguinte probabilidade no simplex:
+
+\begin{equation}
+p(\theta|\alpha) = \frac{\gamma(\sum_{i=1}^{k}\alpha_i)}{\prod_{i=1}^{k}\gamma(\alpha_i)}\theta_1^{\alpha_{1}-1}\dots\theta_{k}^{\alpha_k -1}
+\end{equation}
+
+onde o parâmetro $\alpha$ é um $k$-vetor com componentes $\alpha_i > 0$, e $\gamma(x)$ é uma função Gamma.
+Dados os parâmetros $\alpha$ e $\beta$ a distribuição é um conjunto de uma mistura de tópicos $\theta$, um conjunto de $N$ tópicos $z$ e o conjunto de $N$ palavras $w$ é dada por:
+
+\begin{equation}
+p(\theta,\textbf{z},\textbf{w}|\alpha,\beta) = p(\theta|\alpha)\prod_{n=1}^{N} p(z_n|theta)p(w_n|z_n, \beta),
+\end{equation}
+
+onde $p(z_n|\theta)$ é simplesmente $\theta_i$ para único $i$ que $z_n^i = 1$. Integrando $\theta$ e somando $z$, obtem-se a distribuição marginal de um documento:
+
+\begin{equation}
+p(\textbf{w}|\alpha,\beta) = \int p(\theta|\alpha) (\prod_{n=1}^{N}\sum p(z_n|\theta) p(w_n|z_n,\beta)) d\theta.
+\end{equation}
+
+Com o produto das probabilidades marginais de documentos únicos, obtem-se a probabilidade de um \textit{corpus}:
+
+\begin{equation}
+p(D|\alpha,\beta) = \prod_{d=1}^{M} \int p(\theta_d|\alpha)( \prod_{n=1}^{N_d} \sum_{z_{dn}} p(z_{dn}|\theta_d)p(w_{dn}|z_{dn},\beta) )d\theta_d.
+\end{equation}
+
+O modelo LDA é representado como um modelo gráfico probabilístico na Fig. \ref{fig:lda}. Existem três níveis para a representação LDA. Os parâmetros $\alpha$ e $\beta$ são parâmetros de corpus, assumidos como amostrados uma vez no processo de geração de um corpus. As variáveis $\theta_d$ são variáveis no nível do documento, amostradas uma vez por documento. Finalmente, as variáveis $z_{dn}$ e $w_{dn}$ são variáveis no nível da palavra e são amostradas uma vez para cada palavra em cada documento.
+
+Aplicado ao EJ, \textit{documento} se refere à um \textit{usuário}, \textit{palavra} equivale à \textit{comentário} e \textit{corpus} a um respectivo \textit{grupo de opinião}.
+
+LDA como um modelo de mistura tem a probabilidade de cada comentário aparecer para cada usuário como se fosse Bernoulli (concorda ou discorda), entretanto, ao invés da probabilidade depender da categoria, ela depende da mistura de categorias.
+
+Grupo de opinião -> tópico
+usuário -> documento
+comentário -> palavra
+
+Seja:
+
+$$ i - usuários, i \in [0,N],$$
+
+$$ j - comentários, j \in [0,M],$$
+
+$$ k - opiniões, k \in [0,P] $$
+
+$$ W_{ij} = \sum_{k} Q_{ik} F_{kj} $$
+
+$$ Q_{ik} = fração da opinião k do usuário $$
+
+$$ \sum Q_{ik} = 1 $$
+
+$$ F_{kj} -> probabilidade de usuário ideal do grupo K concordar com o comentário j $$
 
 
-O modelo LDA é representado como um modelo gráfico probabilístico na Figura \ref{fig:lda}. Existem três níveis para a representação LDA. Os parâmetros $\alpha$ e $\beta$ são parâmetros de corpus, assumidos como amostrados uma vez no processo de geração de um corpus. As variáveis $\theta_d$ são variáveis no nível do documento, amostradas uma vez por documento. Finalmente, as variáveis $z_{dn}$ e $w_{dn}$ são variáveis no nível da palavra e são amostradas uma vez para cada palavra em cada documento.
+$$ P(\textbf{d}|\textbf{F}, \textbf{Q})=XXX $$
+
+$$ d_{ij} \in [0,1] $$ 
+like/dislike do usuário i no comentário j
+
+
+$$ P(\textbf{f}, \textbf{q} | \textbf{d} = \frac {P(\textbf{f},\textbf{q}) P(\textbf{d}| \textbf{f}, \textbf{q}} {P(\textbf{d})} $$
+
+
+\begin{equation}
+P(\textbf{d}|\textbf{F}, \textbf{Q})= 
+\begin{cases}
+  dasdsa \\
+  dasdsadkkkk
+\end{cases}
+\end{equation}
+
+\[ P(\textbf{d}|\textbf{F}, \textbf{Q})= 
+  \begin{cases}
+     W_{ij} ; d_{ij} = 1  \\
+     1-W_{ij} ; d_{ij} = 0
+  \end{cases}
+\]
+
+
 
 %http://conteudo.icmc.usp.br/CMS/Arquivos/arquivos_enviados/BIBLIOTECA_158_RT_409.pdf
 
 %http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf
+
+\chapter{Metodologia}
+
+
+Neste capítulo serão abordadas tecnologias utilizadas para o alcance dos objetivos e a obtenção dos resultados. O estudo técnico de algoritmos e das distribuições foi colocado em prática utilizando a linguagem de programação Python, que é muito utilizada em ciência de dados.
+
+De forma didática foi utilizado Jupyter Notebook, um aplicativo Web que permite criar códigos, equações, visualizações e texto no mesmo arquivo \footnote{https://jupyter.org/}. Todo o versionamento de código foi está no Github \footnote{https://github.com/naiieandrade/tcc-studies}.
+
+
+
+\section{Resultados}
+
+
